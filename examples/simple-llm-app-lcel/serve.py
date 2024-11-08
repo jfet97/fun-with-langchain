@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# must set OPENAI_API_KEY env variable
 from fastapi import FastAPI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -13,7 +14,7 @@ prompt_template = ChatPromptTemplate.from_messages([
 ])
 
 # 2. Create model
-model = ChatOpenAI()
+model = ChatOpenAI(model="gtp-4")
 
 # 3. Create parser
 parser = StrOutputParser()
